@@ -7,10 +7,21 @@ public class SliderDraw : MonoBehaviour
     public GameObject line;
     private LineRenderer lineRenderer;
     private EdgeCollider2D edgeCollider;
+    public float centerX;
+    public float centerY;
     private float h = 0;
     private float k = 0;
     private float a = 1;
 
+    public void ResetVariables()
+    {
+        h = 0;
+        k = 0;
+        a = 1;
+    } 
+    
+    // Parabola Sliders
+  
     public void Slider_ChangedH(float value)
     {
         int position = 0;
@@ -25,8 +36,8 @@ public class SliderDraw : MonoBehaviour
         {
             if (position < 100)
             {
-                points[position] = new Vector3((i + value), (a * (i * i)) + k, 0);
-                colliderPoints[position] = new Vector2( (i + value), (a * (i * i)) + k);
+                points[position] = new Vector3((i + value + centerX), (a * (i * i)) + k + centerY, 0);
+                colliderPoints[position] = new Vector2( (i + value + centerX), (a * (i * i)) + k + centerY);
 
                 position = position + 1;
             }
@@ -49,8 +60,8 @@ public class SliderDraw : MonoBehaviour
         {
             if (position < 100)
             {
-                points[position] = new Vector3( (i + h), (a * (i * i)) + value, 0);
-                colliderPoints[position] = new Vector2( (i + h), (a*(i * i)) + value);
+                points[position] = new Vector3( (i + h + centerX), (a * (i * i)) + value + centerY, 0);
+                colliderPoints[position] = new Vector2( (i + h + centerX), (a*(i * i)) + value + centerY);
 
                 position = position + 1;
             }
@@ -73,8 +84,8 @@ public class SliderDraw : MonoBehaviour
         {
             if (position < 100)
             {
-                points[position] = new Vector3((i + h), (value * (i * i)) + k, 0);
-                colliderPoints[position] = new Vector2( (i + h), (value * (i * i)) + k);
+                points[position] = new Vector3((i + h + centerX), (value * (i * i)) + k + centerY, 0);
+                colliderPoints[position] = new Vector2( (i + h + centerX), (value * (i * i)) + k + centerY);
 
                 position = position + 1;
             }
@@ -82,6 +93,22 @@ public class SliderDraw : MonoBehaviour
 
         lineRenderer.SetPositions(points);
         edgeCollider.points = colliderPoints;
+    }
+
+    // Circle Sliders
+    public void Slider_ChangedR(float value)
+    {
+
+    }
+
+    public void Slider_Changed_Circle_H(float value)
+    {
+
+    }
+
+    public void Slider_Changed_Circle_K(float value)
+    {
+
     }
 
 }

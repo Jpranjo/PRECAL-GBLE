@@ -7,10 +7,13 @@ public class DrawScript : MonoBehaviour
 
     private LineRenderer lineRenderer;
     private EdgeCollider2D edgeCollider;
+    public Transform playerTransform;
 
     // Start is called before the first frame update
     void Start()
     {
+        float yOffset = playerTransform.position.y;
+        float xOffset = playerTransform.position.x;
         int position = 0;
         lineRenderer = GetComponent<LineRenderer>();
         edgeCollider = GetComponent<EdgeCollider2D>();
@@ -23,13 +26,12 @@ public class DrawScript : MonoBehaviour
         {
             if (position < 100)
             {
-                points[position] = new Vector3(i+h, (i * i) + k, 0);
-                colliderPoints[position] = new Vector2(i+h, (i * i) + k);
+                points[position] = new Vector3(i+h+xOffset, (i * i) + k + yOffset, 0);
+                colliderPoints[position] = new Vector2(i+h + xOffset, (i * i) + k +yOffset);
 
                 position = position + 1;
             }
             
-            Debug.Log(position);
         }
 
         lineRenderer.SetPositions(points);
