@@ -19,11 +19,13 @@ public class PlayerMovement2 : MonoBehaviour
     private bool facingRight = true;
     private bool isGrounded;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
-
+        animator    = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,8 +34,7 @@ public class PlayerMovement2 : MonoBehaviour
         // Get input
         ProcessInput();
         
-        //Animate
-        //Animate();
+        
     }
 
     void FixedUpdate()
@@ -65,6 +66,11 @@ public class PlayerMovement2 : MonoBehaviour
             rigidBody2D.AddForce(new Vector2(0f, jumpForce));
         }
         isJumping = false;
+
+        //Animate
+        Animate();
+        //Animator
+        animator.SetFloat("xVelocity", Mathf.Abs(rigidBody2D.velocity.x));
     }
 
     private void Animate()

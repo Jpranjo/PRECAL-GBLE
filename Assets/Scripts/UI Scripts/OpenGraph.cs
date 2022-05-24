@@ -26,4 +26,10 @@ public class OpenGraph : MonoBehaviour
         }
         toolOpen = !toolOpen;
     }
+
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.I)){
+            OpenGraphingTool();
+        }
+    }
 }
