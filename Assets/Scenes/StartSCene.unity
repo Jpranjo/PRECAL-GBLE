@@ -259,6 +259,94 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177477862}
   m_CullTransparentMesh: 1
+--- !u!1001 &387979553
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2548549563259065546, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: levelToLoad
+      value: Prologue
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549563259065548, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549563259065548, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 365
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549563259065548, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 205.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549563259065548, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.9450002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549563259065548, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549563259065548, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549563259065548, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549563259065548, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549563259065548, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549563259065548, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549563259065548, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549563259065549, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_Name
+      value: LevelChanger
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549564508693648, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1211.0972
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549564508693648, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 679.3527
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549564508693648, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 22.574703
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548549564508693648, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.3763
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+--- !u!114 &387979554 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2548549563259065546, guid: a02aba033a43e1a4483ce07aa71b8244, type: 3}
+  m_PrefabInstance: {fileID: 387979553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3375b1f29a9c60040b9320b58be04c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &690398651 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6639f80d9054d16499694928b97e20d9, type: 3}
@@ -396,7 +484,6 @@ GameObject:
   - component: {fileID: 1306756077}
   - component: {fileID: 1306756076}
   - component: {fileID: 1306756075}
-  - component: {fileID: 1306756079}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -485,18 +572,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1306756079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306756074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 732ad77bd3e86e246aafcf00d5e7170c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1640815706
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,16 +721,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1306756079}
-        m_TargetAssemblyTypeName: StartSceneScript, Assembly-CSharp
-        m_MethodName: SceneChange
+      - m_Target: {fileID: 387979554}
+        m_TargetAssemblyTypeName: LevelChanger, Assembly-CSharp
+        m_MethodName: FadeToLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial
+          m_StringArgument: Prologue
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1739034288

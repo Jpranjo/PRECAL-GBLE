@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class SelectConic : MonoBehaviour
 {
+    [Header("Conic Prefabs")]
     [SerializeField] private GameObject parabolaPrefab;
     [SerializeField] private GameObject circlePrefab;
-    [SerializeField] private GameObject parentObject;
+    [SerializeField] private GameObject ellipsePrefab;
+    [SerializeField] private GameObject hyperbolaPrefab;
+
+    [Header("Other Fields")]
+    [SerializeField] private GameObject spawnedObjectList;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private GameObject sliderManager;
  
@@ -16,8 +21,8 @@ public class SelectConic : MonoBehaviour
     {
         setUpNewConic();
         conicLine = Instantiate(parabolaPrefab);
-        conicLine.transform.parent = parentObject.transform;
-        conicLine.GetComponent<DrawScript>().playerTransform = playerTransform;
+        conicLine.transform.parent = spawnedObjectList.transform;
+        conicLine.GetComponent<DrawScript_Parabola>().playerTransform = playerTransform;
         sliderManager.GetComponent<SliderDraw>().line = conicLine;
 
         sliderManager.GetComponent<SliderActivation>().SetActiveParabola();
@@ -25,6 +30,36 @@ public class SelectConic : MonoBehaviour
 
     public void circleGraph() 
     { 
+        setUpNewConic();
+        conicLine = Instantiate(circlePrefab);
+        conicLine.transform.parent = spawnedObjectList.transform;
+        conicLine.GetComponent<DrawCircle>().playerTransform = playerTransform;
+
+        sliderManager.GetComponent<SliderDraw>().line = conicLine;
+
+        sliderManager.GetComponent<SliderActivation>().SetActiveCircle();
+    }
+
+    public void ellipseGraph(){
+        setUpNewConic();
+        conicLine = Instantiate(ellipsePrefab);
+        conicLine.transform.parent = spawnedObjectList.transform;
+        conicLine.GetComponent<DrawEllipse>().playerTransform = playerTransform;
+
+        sliderManager.GetComponent<SliderDraw>().line = conicLine;
+        sliderManager.GetComponent<SliderDraw>().SetEllipseVariables();
+        sliderManager.GetComponent<SliderActivation>().SetActiveEllipse();
+    }
+
+    public void hyperbolaGraph(){
+        setUpNewConic();
+        conicLine = Instantiate(hyperbolaPrefab);
+        conicLine.transform.parent = spawnedObjectList.transform;
+        conicLine.GetComponent<DrawHyperbola>().playerTransform = playerTransform;
+
+        sliderManager.GetComponent<SliderDraw>().line = conicLine;
+
+        sliderManager.GetComponent<SliderActivation>().SetActiveHyperbola();
     }
 
     private void setUpNewConic() 
@@ -33,7 +68,7 @@ public class SelectConic : MonoBehaviour
         {
             Destroy(conicLine);
         }
-        sliderManager.GetComponent<SliderDraw>().centerX = playerTransform.position.x;
-        sliderManager.GetComponent<SliderDraw>().centerY = playerTransform.position.y;
+        sliderManager.GetComponent<SliderDraw>().centerX = Mathf.Round(Mathf.Floor(playerTransform.position.x));
+        sliderManager.GetComponent<SliderDraw>().centerY =Mathf.Round(Mathf.Floor(playerTransform.position.y));
     }
 }
