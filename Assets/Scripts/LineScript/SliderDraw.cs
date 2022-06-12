@@ -22,6 +22,11 @@ public class SliderDraw : MonoBehaviour
     private float b = 1;
     private float r = 1;
 
+    private bool isActive = true;
+
+    public void SetActive(bool active){
+        isActive = active;
+    }
     public void ResetVariables()
     {
         h = 0;
@@ -60,7 +65,7 @@ public class SliderDraw : MonoBehaviour
         b = value;
     }
     private void GraphNewParabola(){
-                int position = 0;
+        int position = 0;
         lineRenderer = line.GetComponent<LineRenderer>();
         edgeCollider = line.GetComponent<EdgeCollider2D>();
         lineRenderer.positionCount = 100;
@@ -165,7 +170,7 @@ public class SliderDraw : MonoBehaviour
             }
         }
         else{
-            Debug.Log("Hi");
+            Debug.Log("Denominator Cannot be zero");
         }
 
         lineRenderer.SetPositions(points_line1);
@@ -173,13 +178,15 @@ public class SliderDraw : MonoBehaviour
     }
 
     public void Slider_Changed_Update(string conic){
-        if(conic == "Parabola")
-            GraphNewParabola();
-        if(conic == "Circle")
-            GraphNewCircle();
-        if(conic == "Ellipse")
-            GraphNewEllipse();
-        if(conic == "Hyperbola")
-            GraphNewHyperbola();
+        if(isActive){
+            if(conic == "Parabola")
+                GraphNewParabola();
+            if(conic == "Circle")
+                GraphNewCircle();
+            if(conic == "Ellipse")
+                GraphNewEllipse();
+            if(conic == "Hyperbola")
+                GraphNewHyperbola();
+        }
     }
 }

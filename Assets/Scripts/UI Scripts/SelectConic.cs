@@ -14,6 +14,7 @@ public class SelectConic : MonoBehaviour
     [SerializeField] private GameObject spawnedObjectList;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private GameObject sliderManager;
+    [SerializeField] private GameObject equationManager;
  
     private GameObject conicLine; 
 
@@ -26,6 +27,7 @@ public class SelectConic : MonoBehaviour
         sliderManager.GetComponent<SliderDraw>().line = conicLine;
 
         sliderManager.GetComponent<SliderActivation>().SetActiveParabola();
+        equationManager.GetComponent<EquationsActivation>().SetActiveParabola();
     }
 
     public void circleGraph() 
@@ -38,6 +40,7 @@ public class SelectConic : MonoBehaviour
         sliderManager.GetComponent<SliderDraw>().line = conicLine;
 
         sliderManager.GetComponent<SliderActivation>().SetActiveCircle();
+        equationManager.GetComponent<EquationsActivation>().SetActiveCircle();
     }
 
     public void ellipseGraph(){
@@ -45,10 +48,12 @@ public class SelectConic : MonoBehaviour
         conicLine = Instantiate(ellipsePrefab);
         conicLine.transform.parent = spawnedObjectList.transform;
         conicLine.GetComponent<DrawEllipse>().playerTransform = playerTransform;
-
         sliderManager.GetComponent<SliderDraw>().line = conicLine;
+
         sliderManager.GetComponent<SliderDraw>().SetEllipseVariables();
+
         sliderManager.GetComponent<SliderActivation>().SetActiveEllipse();
+        equationManager.GetComponent<EquationsActivation>().SetActiveEllipse();
     }
 
     public void hyperbolaGraph(){
@@ -60,6 +65,7 @@ public class SelectConic : MonoBehaviour
         sliderManager.GetComponent<SliderDraw>().line = conicLine;
 
         sliderManager.GetComponent<SliderActivation>().SetActiveHyperbola();
+        equationManager.GetComponent<EquationsActivation>().SetActiveHyperbola();
     }
 
     private void setUpNewConic() 

@@ -35,6 +35,7 @@ public class SliderActivation : MonoBehaviour
     }
     public void SetAllUnactive()
     {
+        GetComponent<SliderDraw>().SetActive(false);
         if(sliderParabola.activeSelf){
             sliderParabola.SetActive(false);
             ResetSliders(sliderParabola);
@@ -51,6 +52,7 @@ public class SliderActivation : MonoBehaviour
             sliderHyperbola.SetActive(false);
              ResetSliders(sliderHyperbola);
         }
+        GetComponent<SliderDraw>().SetActive(true);
     }
 
     private void ResetSliders(GameObject slider){
