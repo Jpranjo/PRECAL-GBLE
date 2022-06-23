@@ -8,6 +8,15 @@ TagManager:
   - Line
   - Slider_A
   - Slider_B
+  - GraphingTool
+  - EquationsManager
+  - SlidersManager
+  - ProblemManager
+  - CharacterSprite
+  - Background
+  - Border
+  - VisualizationManager
+  - DialogueManager
   layers:
   - Default
   - TransparentFX
@@ -18,7 +27,7 @@ TagManager:
   - Ground
   - Platform
   - NPC
-  - 
+  - Lines
   - 
   - 
   - 
@@ -44,4 +53,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3751496559
+    locked: 0
+  - name: FX
+    uniqueID: 1076091479
+    locked: 0
+  - name: NPC
+    uniqueID: 3817426473
+    locked: 0
+  - name: Player
+    uniqueID: 956029427
+    locked: 0
+  - name: Line
+    uniqueID: 4154483293
     locked: 0

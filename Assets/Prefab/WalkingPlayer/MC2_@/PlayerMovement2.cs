@@ -99,6 +99,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     public void DisableMovement(){
             allowedMoving = false;
+            moveInput = 0;
     }
 
     public void EnableMovement(){

@@ -23,6 +23,7 @@ public class SliderDraw : MonoBehaviour
     private float r = 1;
 
     private bool isActive = true;
+    private int conicType;
 
     public void SetActive(bool active){
         isActive = active;
@@ -40,21 +41,46 @@ public class SliderDraw : MonoBehaviour
     public void SetEllipseVariables(){
         b = 2;
     }
-    // Parabola Sliders
-  
+
+    public void SetVariables(float[] value, Transform offset){
+        h = value[0];
+        k = value[1];
+        a = value[2];
+        try{
+            b = value[3];
+        } catch{
+            //No B value set
+        }
+
+        centerX = offset.position.x;
+        centerY = offset.position.y;
+    }
+
+    public void SetOrientation(int orient){
+
+    }
+    
+    public float[] GetVariables(){
+        float[] vars = {h,k,a,b};
+        return vars;
+    }
+    public void SetNewObject(GameObject obj, int type){
+        line = obj;
+        conicType = type;
+    }
     public void Slider_ChangedH(float value)
     {
-        h = value;
+        h = Mathf.Round(value * 10.0f) *0.1f;
     }
 
     public void Slider_ChangedK(float value)
     {
-        k = value;  
+        k = Mathf.Round(value * 10.0f) *0.1f; 
     }
 
     public void Slider_ChangedA(float value)
     {
-        a = value;
+        a = Mathf.Round(value * 10.0f) *0.1f;
     }
     public void Slider_Changed_CircleR(float value)
     {  
@@ -62,7 +88,7 @@ public class SliderDraw : MonoBehaviour
     }
     
     public void Slider_ChangedB(float value){
-        b = value;
+        b = Mathf.Round(value * 10.0f) *0.1f;
     }
     private void GraphNewParabola(){
         int position = 0;
@@ -103,8 +129,8 @@ public class SliderDraw : MonoBehaviour
             float xScaled = Mathf.Cos(curRadian);
             float yScaled = Mathf.Sin(curRadian);
 
-            float x = xScaled * r;
-            float y = yScaled * r;
+            float x = xScaled * a;
+            float y = yScaled * a;
 
             Vector3 currentPosition = new Vector3(x + h + centerX, y + k + centerY, 0);
 
@@ -148,7 +174,7 @@ public class SliderDraw : MonoBehaviour
                 
                 if (position < 100)
                 {
-                    float x =  Mathf.Sqrt((b*b) * ( (i *i ) / (a*a)));
+                    /*float x =  Mathf.Sqrt((b*b) * ( (i *i ) / (a*a)));
                     float y = Mathf.Sqrt((a*a) * (1 + ( (i * i) / (b*b) )));
 
                     if(i < 0){
@@ -164,6 +190,24 @@ public class SliderDraw : MonoBehaviour
                     y = (line2Y * -1) + centerY + k;
 
                     points_line2[position] = new Vector3(x,y,0);
+                    
+                    position = position + 1;*/
+                   
+                    float y =  Mathf.Sqrt((b*b) * ( (i *i ) / (a*a)));
+                    float x = Mathf.Sqrt((a*a) * (1 + ( (i * i) / (b*b) )));
+                    if(i < 0){
+                            x = x*-1;
+
+                        points_line2[position] = new Vector3(x+centerX+h ,y + centerY + k,0);
+                        points_line1[position] = new Vector3((x*-1)+centerX+h,(y*-1)+ centerY + k,0);
+                    }
+                    else{
+                        points_line1[position] = new Vector3(x+centerX+h,y+ centerY + k,0);
+                        points_line2[position] = new Vector3((x*-1)+centerX+h,(y*-1)+ centerY + k,0);
+                    } 
+                 
+                
+                    //colliderPoints[position] = new Vector2( (i + h + centerX), (a * (i * i)) + k + centerY);
                     
                     position = position + 1;
                 }
@@ -188,5 +232,16 @@ public class SliderDraw : MonoBehaviour
             if(conic == "Hyperbola")
                 GraphNewHyperbola();
         }
+    }
+
+    public void Update_Graph(){
+        if(conicType == 0)
+            GraphNewParabola();
+        else if(conicType == 1)
+            GraphNewCircle();
+        else if(conicType == 2)
+            GraphNewEllipse();         
+        else if(conicType == 3)
+            GraphNewHyperbola();
     }
 }
