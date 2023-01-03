@@ -3,7 +3,6 @@ INCLUDE ../Globals.ink
 { problem3_state == "NoInteract":-> start | -> midcheck}
 
 === start ===
-EAT
 How is my boss expecting me to do this alone? #speaker:Soldier #portrait:soldier_2
 Do you need some help there?#speaker:MC #portrait:MC 
 I don't have an idea on how to create the perfect wings for this airplane.#speaker:Soldier #portrait:soldier_2

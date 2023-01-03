@@ -61,7 +61,7 @@ public class SliderActivation : MonoBehaviour
         h.GetComponent<Slider>().interactable = false;
         k.GetComponent<Slider>().interactable = false;
         a.GetComponent<Slider>().interactable = false;
-        a.GetComponent<Slider>().interactable = false;
+        b.GetComponent<Slider>().interactable = false;
 
         GetComponent<SliderDraw>().SetActive(true);
     }

@@ -6,10 +6,6 @@ public class DisappearSCript : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private GameObject smoke;
-    [SerializeField] private float radius = 2f;
-    [SerializeField] private float width = 2f;
-    [SerializeField] private float height = 2f;
-    [SerializeField] private int numObjects = 50;
 
     public void SmokeCircle(int numObjs, float r){
             for (int i = 0; i < numObjs; i++)

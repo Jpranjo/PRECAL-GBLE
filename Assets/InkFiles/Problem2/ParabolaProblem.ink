@@ -3,7 +3,6 @@ INCLUDE ../Globals.ink
 { problem2_state == "NoInteract":-> start | -> midcheck}
 
 === start ===
-EAT
 What happened here? #speaker:MC #portrait:MC 
 
 A magnitude 6.0 earthquake occurred three days ago. I came here to check the situation and it turned out worse than I expected. #speaker:Soldier #portrait:soldier

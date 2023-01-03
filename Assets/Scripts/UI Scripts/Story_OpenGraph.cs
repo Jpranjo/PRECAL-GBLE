@@ -68,7 +68,7 @@ public class Story_OpenGraph : MonoBehaviour
             // else if(curConic == 3) {
             //      sliderManager.GetComponent<SliderActivation>().SetActiveHyperbola();
             // }
-            if(curConic < 2)
+            if(curConic <= 1)
                 sliderManager.GetComponent<SliderActivation>().Set3Active();
             else
                 sliderManager.GetComponent<SliderActivation>().Set4Active();
